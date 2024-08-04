@@ -88,7 +88,7 @@ class VAEDataset(LightningDataModule):
         self.train_dataset = MyCelebA(
             self.data_dir,
             split='train',
-            transforms=train_transforms,
+            transform=train_transforms,
             download=False,
         )
 

@@ -4,7 +4,7 @@ import torch.nn.functional as F
 from typing import *
 from torch import nn
 from torch import Tensor
-from base import BaseVAE
+from models import BaseVAE
 
 class VanillaVAE(BaseVAE):
     def __init__(self,
@@ -48,7 +48,7 @@ class VanillaVAE(BaseVAE):
                 nn.ConvTranspose2d(in_channels=hidden_dims[i], out_channels=hidden_dims[i+1],
                                    kernel_size=3, stride=2, padding=1, output_padding=1),
                 nn.BatchNorm2d(hidden_dims[i + 1]),
-                nn.LeakyReLU
+                nn.LeakyReLU()
             )
             modules.append(module)
 

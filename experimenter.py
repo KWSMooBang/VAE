@@ -33,7 +33,7 @@ class VAE_experimenter(pl.LightningModule):
     
     def training_step(self, batch, batch_idx, optimizer_idx=0):
         real_images, labels = batch
-        self.current_device = real_image.device
+        self.current_device = real_images.device
 
         results = self.forward(real_images, labels=labels)
         train_loss = self.model.loss_function(*results, 
